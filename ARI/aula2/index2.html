@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form>
+            <input type="number" id="textField" required>
+            <button>test</button>
+        </form>
+        <script>
+            function validate(){
+                let element = document.getElementById("textField");
+                console.log(element.value);
+                if(element.value !='test'){
+                    element.setCustomValidity("valor precisa ser test");
+                }
+            }
+        </script>
+    </body>
+</html>

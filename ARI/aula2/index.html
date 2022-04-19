@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="inputNumber" type="number" step="2" max="10"><br>
+        <input id="inputRange" type="range" min="1" max="10" value="5" step="1" ><br>
+        <input id="inputTime" type="time"><br>
+        <input id="inputDate" type="date"><br>
+        <input id="inputDateTime" type="datetime-local"><br>
+        <input id="inputMonth" type="month"><br>
+        <input id="inputWeek" type="week"><br>
+        <input id="inputColor" type="color"><br>
+        <input type="text" id="comboBox" list="myOptions"/>
+        <datalist>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+        </datalist><br>
+        <input type="tel" placeholder="1111-1111">
+        <br>
+        <button onclick="">Ver Valor</button>
+        <script>
+            function printValue(elementId){
+                let inputValue = document.getElementById(elementId).value;
+                console.log(elementId, inputNumber);
+            }
+            function printAll(){
+                printValue("inputNumber");
+                printValue("inputRange");
+                printValue("inputTime");
+                printValue("inputDate");
+                printValue("inputDateTime");
+            }
+        </script>
+
+    </body>
+</html>
