@@ -32,3 +32,10 @@
     width: 50px;
     height: 50px;
 }
+
+#descarte{
+	width: 100px;
+	height: 100px;
+	border: 3px solid red;
+
+}

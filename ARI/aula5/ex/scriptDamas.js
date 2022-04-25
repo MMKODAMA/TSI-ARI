@@ -1,4 +1,5 @@
 let jogo = document.getElementById('jogo');
+let descarte = document.getElementById('descarte');
 let x1 = document.getElementById('x1');
 let o1 = document.getElementById('o1');
 let x2 = document.getElementById('x2');
@@ -119,18 +120,20 @@ x12.addEventListener('dragstart', (event) => {
 o12.addEventListener('dragstart', (event) => {
     event.dataTransfer.setData("imagem", event.target.id);
     console.log('Começou a arrastar');
+
 });
 jogo.addEventListener('drop', (event) => {
     let elementId = event.dataTransfer.getData("imagem");
 
-
-        if(event.target.children.length < 1){
-            let element = document.getElementById(elementId);
-            let imagem = element;
-            event.target.appendChild(imagem); 
-            event.target.children.length++;
-            console.log(event.target.children.length);
-        }
+            if(event.target.children.length < 1){
+                
+                let element = document.getElementById(elementId);
+                let imagem = element;
+                event.target.appendChild(imagem); 
+                event.target.children.length++;
+                console.log(event.target.children.length);
+                console.log(event.target.id);
+            }
     
 });
 jogo.addEventListener('dragenter', () => {
@@ -146,4 +149,13 @@ jogo.addEventListener('dragover', (event) => {
     event.preventDefault();
     console.log('drag over');
 
+});
+
+descarte.addEventListener('drop', function(event){
+    if(event.dataTransfer.dropEffect !== 'none'){
+        let elementId = event.dataTransfer.getData("imagem");
+        
+        let element = document.getElementById(elementId);
+        element.parentNode.removeChild(element);
+    }
 });
