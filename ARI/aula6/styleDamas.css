@@ -1,0 +1,26 @@
+td {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+}
+
+td.black {
+    background-color: #000000;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+
+#cemitery {
+    float: right;
+    width: 200px;
+    min-height: 200px;
+    border: 1px solid red;
+}
+
+table {
+    float: left;
+}

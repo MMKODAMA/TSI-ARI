@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<style>
+			td {
+				width: 150px;
+				height: 150px;
+				border: 1px solid #000;
+			}
+			
+			td.black {
+				background-color: #000000;
+			}
+			
+			img {
+				width: 100px;
+				height: 100px;
+				padding: 20px;
+			}
+			
+			#cemitery {
+				float: right;
+				width: 200px;
+				min-height: 200px;
+				border: 1px solid red;
+			}
+			
+			table {
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td><img src="circulo.jfif" draggable="true"></td>
+				<td class="black"><img src="circulo.jfif" draggable="true"></td>
+				<td><img src="circulo.jfif" draggable="true"></td>
+				<td class="black"><img src="circulo.jfif" draggable="true"></td>
+			</tr>
+			<tr>
+				<td class="black"></td>
+				<td></td>
+				<td class="black"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="black"></td>
+				<td></td>
+				<td class="black"></td>
+			</tr>
+			<tr>
+				<td class="black"><img src="circulo.jfif" draggable="true"></td>
+				<td><img src="circulo.jfif" draggable="true"></td>
+				<td class="black"><img src="circulo.jfif" draggable="true"></td>
+				<td><img src="circulo.jfif" draggable="true"></td>
+			</tr>
+		</table>
+		<div id="cemitery">
+		<div>
+		<script>
+			let images = document.getElementsByTagName('img');
+			
+			let lastElementDragged;
+			
+			for(let i = 0; i < images.length; i++) {
+				let image = images[i];
+				
+				image.addEventListener("dragstart", (event) => {
+					lastElementDragged = event.target;
+				})
+			}
+		
+			let elements = document.getElementsByTagName('td');
+			
+			for(let i = 0; i < elements.length; i++) {
+				let element = elements[i];
+				
+				element.addEventListener("dragover", (event) => {
+					event.preventDefault();
+				});
+				
+				element.addEventListener("drop", (event) => {
+					event.preventDefault();
+					console.log('event.target', event.target.tagName);
+					console.log('ondrop', event.target.children.length);
+					if(event.target.children.length == 0 && event.target.tagName != "IMG")
+						event.target.appendChild(lastElementDragged);
+				});
+			}
+			
+			let cemitery = document.getElementById("cemitery");
+			
+			cemitery.addEventListener("dragover", (event) => {
+				event.preventDefault();
+			});
+			
+			cemitery.addEventListener("drop", (event) => {
+				event.preventDefault();
+				event.target.appendChild(lastElementDragged);
+			});
+		</script>
+	</body>
+</html>

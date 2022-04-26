@@ -1,0 +1,14 @@
+td{
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+}
+img{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+}
+
+div div{
+    background-color: black;
+}

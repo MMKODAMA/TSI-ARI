@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<style>
+			td {
+				width: 150px;
+				height: 150px;
+				border: 1px solid #000;
+			}
+			
+			img {
+				width: 100px;
+				height: 100px;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="x" src="x.jfif" draggable="true">
+		<img id="circle" src="circulo.jfif" draggable="true">
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<script>
+			let elements = document.getElementsByTagName('td');
+			let x = document.getElementById("x");
+			let circle = document.getElementById("circle");
+			
+			let draggingElement;
+			
+			x.addEventListener("dragstart", () => {
+				draggingElement = x;
+				console.log('draggingElement', draggingElement);
+			});
+			
+			circle.addEventListener("dragstart", () => {
+				draggingElement = circle;
+				console.log('draggingElement', draggingElement);
+			});
+			
+			console.log(elements);
+			
+			for(let i = 0; i < elements.length; i++) {
+				let cell = elements[i];
+				
+				cell.addEventListener("dragover", (event) => {
+					event.preventDefault();
+					console.log('drag over');
+				});
+				
+				cell.addEventListener("drop", (event) => {
+					event.preventDefault();
+					
+					let elementClone = draggingElement.cloneNode();
+					
+					if(event.target.childElementCount == 0)
+						event.target.appendChild(elementClone);
+				});				
+			}
+		</script>
+	</body>
+</html>
