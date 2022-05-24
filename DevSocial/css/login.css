@@ -8,11 +8,12 @@
 
 body {
     /*background: url('/DevSocial/media/images/system/background1.jpg');*/
-    background-image: url('/media/images/system/background1.jpg');
+    background-image: url('../media/images/system/background1.jpg');
     font-family: 'Source Code Pro', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
